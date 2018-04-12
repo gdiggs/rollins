@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Form from './Form.js';
+import Map from './Map.js';
 
 class App extends Component {
   render() {
+
     return (
       <div className="App">
         <header>
@@ -10,7 +12,7 @@ class App extends Component {
           <h2>Go on tour.</h2>
         </header>
         <Form />
-        {/*  Map */}
+        <Map/>
       </div>
     );
   }
