@@ -23,7 +23,7 @@ class Form extends Component {
   }
 
   handleSubmit(event) {
-    console.log('suuupppppp ', this.state);
+    this.props.emitter.emit("updateDirections", this.state)
     event.preventDefault();
   }
 
