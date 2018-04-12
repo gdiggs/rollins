@@ -4,8 +4,9 @@ class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      mode: "WALKING",
       origin: "",
-      steps: ""
+      steps: "",
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -37,6 +38,13 @@ class Form extends Component {
         <label>
           Steps (one per line):
           <textarea name="steps" value={this.state.steps} onChange={this.handleInputChange} />
+        </label>
+        <label>
+          Method:
+          <select name="mode" value={this.state.mode} onChange={this.handleInputChange}>
+            <option value="WALKING">Walking</option>
+            <option value="DRIVING">Driving</option>
+          </select>
         </label>
         <input type="submit" value="Go" />
       </form>

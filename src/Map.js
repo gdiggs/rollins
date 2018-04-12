@@ -19,10 +19,12 @@ const MapRenderer =
         const DirectionsService = new google.maps.DirectionsService();
 
         if (this.props.directionInfo !== previousProps.directionInfo) {
+          console.log("info", this.props.directionInfo);
+
           DirectionsService.route({
             origin: this.props.directionInfo.origin,
             destination: this.props.directionInfo.origin,
-            travelMode: google.maps.TravelMode.DRIVING,
+            travelMode: this.props.directionInfo.mode,
             waypoints: this.props.directionInfo.waypoints,
             optimizeWaypoints: true,
           }, (result, status) => {
