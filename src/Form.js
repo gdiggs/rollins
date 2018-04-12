@@ -23,8 +23,8 @@ class Form extends Component {
   }
 
   handleSubmit(event) {
-    this.props.emitter.emit("updateDirections", this.state)
     event.preventDefault();
+    this.props.emitter.emit("updateDirections", this.state)
   }
 
   render() {
@@ -36,7 +36,7 @@ class Form extends Component {
         </label>
         <label>
           Steps (one per line):
-          <textarea name="steps" value={this.state.waypoints} onChange={this.handleInputChange} />
+          <textarea name="steps" value={this.state.steps} onChange={this.handleInputChange} />
         </label>
         <input type="submit" value="Go" />
       </form>
