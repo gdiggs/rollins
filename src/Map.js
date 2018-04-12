@@ -1,8 +1,8 @@
+ /*global google*/
+
 import React, { Component } from 'react';
 import { compose, withProps, lifecycle } from "recompose"
 import { withScriptjs, withGoogleMap, GoogleMap, DirectionsRenderer } from "react-google-maps"
-
- /*global google*/
 
 const MapRenderer =
   compose(
@@ -19,8 +19,6 @@ const MapRenderer =
         const DirectionsService = new google.maps.DirectionsService();
 
         if (this.props.directionInfo !== previousProps.directionInfo) {
-          console.log("info", this.props.directionInfo);
-
           DirectionsService.route({
             origin: this.props.directionInfo.origin,
             destination: this.props.directionInfo.origin,
