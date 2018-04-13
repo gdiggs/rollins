@@ -9,8 +9,8 @@ const MapRenderer =
     withProps({
       googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_API_KEY}&v=3.exp&libraries=geometry,drawing,places`,
       loadingElement: <div style={{ height: `100%` }} />,
-      containerElement: <div style={{ height: `500px` }} />,
-      mapElement: <div style={{ height: `100%` }} />,
+      containerElement: <div className="row" style={{ height: `300px` }} />,
+      mapElement: <div style={{ height: `100%` }} className="col-lg-12" />,
     }),
     withScriptjs,
     withGoogleMap,
@@ -19,8 +19,6 @@ const MapRenderer =
         const DirectionsService = new google.maps.DirectionsService();
 
         if (this.props.directionInfo !== previousProps.directionInfo) {
-          console.log("info", this.props.directionInfo);
-
           DirectionsService.route({
             origin: this.props.directionInfo.origin,
             destination: this.props.directionInfo.origin,
@@ -41,14 +39,16 @@ const MapRenderer =
     })
   ) (
     (props) =>
-      <GoogleMap
-        defaultZoom={5}
-        defaultCenter={{ lat: 38.879337, lng: -77.089911 }} // Dischord house
-      >
-      {props.directions && <DirectionsRenderer directions={props.directions}
-      panel={ document.getElementById('panel') } />}
-      <div id="panel"></div>
-      </GoogleMap>
+      <div className="col-lg-12">
+        <GoogleMap
+          defaultZoom={5}
+          defaultCenter={{ lat: 38.879337, lng: -77.089911 }} // Dischord house
+        >
+        {props.directions && <DirectionsRenderer directions={props.directions}
+        panel={ document.getElementById('panel') } />}
+        <div id="panel"></div>
+        </GoogleMap>
+      </div>
   )
 
 

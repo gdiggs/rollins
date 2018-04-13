@@ -8,12 +8,17 @@ var emitter = new EventEmitter();
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header>
-          <h1>Rollins</h1>
-          <h2>Go on tour.</h2>
-        </header>
-        <Form emitter={emitter}/>
+      <div className="App container-fluid">
+        <div className="page-header">
+          <h1>
+            Rollins: <small className="text-muted">Go on tour.</small>
+          </h1>
+        </div>
+        <div className="row">
+          <div className="col-lg-12">
+            <Form emitter={emitter}/>
+          </div>
+        </div>
         <Map emitter={emitter}/>
       </div>
     );

@@ -31,22 +31,15 @@ class Form extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Start/Finish:
-          <input type="text" name="origin" value={this.state.origin} onChange={this.handleInputChange} />
-        </label>
-        <label>
-          Steps (one per line):
-          <textarea name="steps" value={this.state.steps} onChange={this.handleInputChange} />
-        </label>
-        <label>
-          Method:
-          <select name="mode" value={this.state.mode} onChange={this.handleInputChange}>
+        <div className="form-inline">
+          <input className="form-control mb-2 mr-sm-2" placeholder="Start/Finish" type="text" name="origin" value={this.state.origin} onChange={this.handleInputChange} />
+          <textarea className="form-control mb-2 mr-sm-2" placeholder="Steps (one per line)" rows="1" name="steps" value={this.state.steps} onChange={this.handleInputChange} />
+          <select className="form-control mb-2 mr-sm-2" name="mode" value={this.state.mode} onChange={this.handleInputChange}>
             <option value="WALKING">Walking</option>
             <option value="DRIVING">Driving</option>
           </select>
-        </label>
-        <input type="submit" value="Go" />
+          <button type="submit" className="btn btn-primary mb-2">Go</button>
+        </div>
       </form>
     )
   }
