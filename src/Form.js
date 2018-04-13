@@ -25,6 +25,7 @@ class Form extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.props.emitter.emit("hideError");
     this.props.emitter.emit("updateDirections", this.state);
   }
 

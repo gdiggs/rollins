@@ -2,11 +2,15 @@ import React, { Component } from 'react';
 import ErrorBanner from "./ErrorBanner.js";
 import Form from './Form.js';
 import Map from './Map.js';
-
-var {EventEmitter} = require('fbemitter');
-var emitter = new EventEmitter();
+import { EventEmitter } from 'fbemitter';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.emitter = new EventEmitter();
+  }
+
   render() {
     return (
       <div className="App container-fluid">
@@ -17,11 +21,11 @@ class App extends Component {
         </div>
         <div className="row">
           <div className="col-lg-12">
-            <Form emitter={emitter}/>
+            <Form emitter={this.emitter}/>
           </div>
         </div>
-        <ErrorBanner emitter={emitter}/>
-        <Map emitter={emitter}/>
+        <ErrorBanner emitter={this.emitter}/>
+        <Map emitter={this.emitter}/>
       </div>
     );
   }

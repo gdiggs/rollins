@@ -68,6 +68,7 @@ class Map extends Component {
     info.waypoints = info.steps.split("\n").map(function(loc) {
       return {
         location: loc,
+        stopover: true,
       }
     });
 
