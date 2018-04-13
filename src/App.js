@@ -21,7 +21,7 @@ class App extends Component {
         </div>
         <div className="row">
           <div className="col-lg-12">
-            <Form emitter={this.emitter}/>
+            <Form emitter={this.emitter} formId={this.props.match.params.id} history={this.props.history}/>
           </div>
         </div>
         <ErrorBanner emitter={this.emitter}/>

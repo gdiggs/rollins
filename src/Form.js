@@ -9,8 +9,16 @@ class Form extends Component {
       steps: "",
     };
 
+    this.generateFormId = this.generateFormId.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.formId) {
+      this.setState(this.formDataFromId());
+      setTimeout(this.handleSubmit, 1000);
+    }
   }
 
   handleInputChange(event) {
@@ -24,9 +32,19 @@ class Form extends Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
+    if (event) { event.preventDefault(); }
+    this.props.history.push(`/${this.generateFormId()}`);
     this.props.emitter.emit("hideError");
     this.props.emitter.emit("updateDirections", this.state);
+  }
+
+  formDataFromId() {
+    return JSON.parse(atob(this.props.formId));
+  }
+
+  generateFormId() {
+    const stateJSON = JSON.stringify(this.state);
+    return Buffer.from(stateJSON).toString("base64");
   }
 
   render() {
