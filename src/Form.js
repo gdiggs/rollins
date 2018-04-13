@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import base64url from 'base64-url';
 
 class Form extends Component {
   constructor(props) {
@@ -39,12 +40,12 @@ class Form extends Component {
   }
 
   formDataFromId() {
-    return JSON.parse(atob(this.props.formId));
+    return JSON.parse(base64url.decode(this.props.formId));
   }
 
   generateFormId() {
     const stateJSON = JSON.stringify(this.state);
-    return Buffer.from(stateJSON).toString("base64");
+    return base64url.encode(stateJSON);
   }
 
   render() {
