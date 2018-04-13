@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ErrorBanner from "./ErrorBanner.js";
 import Form from './Form.js';
 import Map from './Map.js';
 
@@ -19,6 +20,7 @@ class App extends Component {
             <Form emitter={emitter}/>
           </div>
         </div>
+        <ErrorBanner emitter={emitter}/>
         <Map emitter={emitter}/>
       </div>
     );

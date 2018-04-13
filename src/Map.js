@@ -31,7 +31,8 @@ const MapRenderer =
                 directions: result,
               });
             } else {
-              console.error("error fetching directions", status, result);
+              this.props.emitter.emit("showError", `Error fetching directions: ${status} (see console for more details)`);
+              console.error("Error fetching directions", status, result);
             }
           });
         }
@@ -77,7 +78,7 @@ class Map extends Component {
 
   render() {
     return (
-      <MapRenderer directionInfo={this.state.directionInfo} />
+      <MapRenderer directionInfo={this.state.directionInfo} emitter={this.props.emitter}/>
     )
   }
 }
