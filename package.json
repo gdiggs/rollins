@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "base64-url": "^2.2.2",
+    "base64-url": "^2.3.2",
     "fbemitter": "^2.1.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
