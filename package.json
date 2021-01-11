@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "base64-url": "^2.3.3",
-    "fbemitter": "^2.1.1",
+    "fbemitter": "^3.0.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-google-maps": "^9.4.5",
